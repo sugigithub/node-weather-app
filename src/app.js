@@ -5,7 +5,7 @@ const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 const app = express();
 
-
+const port = process.env.PORT || 3000;
 // path for express configs
 app.use(express.static(path.join(__dirname, "../public"))); // static directory path
 const viewpath = path.join(__dirname, "../src/templates/views")  // view path
@@ -105,8 +105,8 @@ app.get('*', (req, res) => {
     });
 });
 // to start the server
-app.listen(3000, () => {
-    console.log("server started on port 3000");
+app.listen(port, () => {
+    console.log("server started on port "+ port);
 });
 
 // will be running as long as we let it 
